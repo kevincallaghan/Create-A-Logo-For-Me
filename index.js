@@ -31,7 +31,6 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 
 //TODO Create a function createMyText - maybe add to new JS file and import
-
 //TODO Create a function CreateMyShape  - maybe add to new JS file and import
 
 //! See Credits #2 for Stack Overflow article I found where I learned about prompt validation
@@ -73,6 +72,7 @@ inquirer
 
 
     //TODO This is sample from last project - might need to find new way to write file for a shape
+   
     const data = ``;
 
     fs.writeFile('logo.svg', data, (err) =>
