@@ -42,7 +42,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 5.  The article "SVG Shape Elements: Rectangles and Squares" on thenewcode.com had starter code that I copied and changed to make my square SVG shape.  Here is a link to the page:  http://thenewcode.com/1034/SVG-Shape-Elements-Rectangles-and-Squares 
 
-6. I watched the video "6.2: Classes in JavaScript with ES6" on The Coding Train youtube channel to learn more and help with my Class Constructor for Shape.  Here is the link to the video: https://www.youtube.com/watch?v=T-HGdc8L-7w
+6. I watched the video "JavaScript Constructors" on Bro Code youtube channel to learn more and help with my Class Constructor for Shape.  Here is the link to the video: https://www.youtube.com/watch?v=DaUFyK8M4WY 
 
 7. 
 
