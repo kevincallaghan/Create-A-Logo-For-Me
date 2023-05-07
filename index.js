@@ -1,15 +1,35 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const { Triangle, Square, Circle } = require('./lib/shapes/shapes');
+//! See Credit 9 for this method of Inquirer validation and related Jest test
+const validateNameResponse = response => response.length >= 1 && response.length <= 3;
 
-//! See Credits #2 for Stack Overflow article I found where I learned about prompt validation
+function createMyLogo(response) {
+  const { textLetters, textColor, logoShape, shapeColor } = response;
+  let shape;
+
+  if (logoShape === "Circle") {
+    shape = new Circle(textLetters, textColor, shapeColor)
+  } else if (logoShape === "Triangle") {
+    shape = new Triangle(textLetters, textColor, shapeColor)
+  } else {
+    shape = new Square(textLetters, textColor, shapeColor)
+  }
+
+  return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    ${shape.render()}
+  </svg>`;
+}
+
+//! See Credits #2 for Stack Overflow article I found where I learned about prompt validation and Credits #8 for help with RegEx to validate
 inquirer
   .prompt([
     {
       type: 'input',
-      message: 'Please enter three letters for the logo.',
+      message: 'Please enter three characters for the logo.',
       name: 'textLetters',
       validate: function (input) {
-        const isValid = input.length >= 1 && input.length <= 3;
+        const isValid = validateNameResponse(input);
         return isValid ? true : 'Please enter a value between 1 and 3 characters.';
       }
     },
@@ -17,6 +37,12 @@ inquirer
       type: 'input',
       message: 'Please enter a text color.',
       name: 'textColor',
+      validate: function (input) {
+        const isValidColorName = /^([a-zA-Z]+)$/.test(input);
+        const isValidHexColor = /^#([0-9A-F]{3}){1,2}$/i.test(input);
+        const isValidTextColor = isValidColorName || isValidHexColor;
+        return isValidTextColor ? true : 'Please enter a valid color';
+      }
     },
     {
       type: 'list',
@@ -30,6 +56,12 @@ inquirer
       type: 'input',
       message: 'Please enter a shape color.',
       name: 'shapeColor',
+      validate: function (input) {
+        const isValidColorName = /^([a-zA-Z]+)$/.test(input);
+        const isValidHexColor = /^#([0-9A-F]{3}){1,2}$/i.test(input);
+        const isValidShapeColor = isValidColorName || isValidHexColor;
+        return isValidShapeColor ? true : 'Please enter a valid color';
+      }
     },
   ])
 
@@ -38,39 +70,14 @@ inquirer
     console.log(response)
     const { textLetters, textColor, logoShape, shapeColor } = response;
 
-function createMyLogo(response) {
-      let data = `
-        <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-      `;
-      if (logoShape === "Circle") {
-        data += `
-          <circle cx="150" cy="100" r="80" fill="${shapeColor}" />
-          <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${textLetters}</text>
-          </svg>          
-        `;
-      } else if (logoShape === "Triangle") {
-        data += `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="${shapeColor}">
-          <polygon points="50 15, 100 100, 0 100" />
-          </svg>
-          <text x="150" y="175" font-size="60" text-anchor="middle" fill="${textColor}">${textLetters}</text>            
-          </svg>
-        `;
-      } else {
-        data += `
-          <svg xmlns="http://www.w3.org/2000/svg">
-	        <rect x="70" y="20" width="160" height="160" fill="${shapeColor}"/>
-          </svg>
-          <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${textLetters}</text>
-        </svg>
-        `;
-      }
-      return data;
-    }
-
     const data = createMyLogo(response);
 
-    fs.writeFile('logo.svg', data, (err) =>
+    fs.writeFile(`./examples/${logoShape}Logo.svg`, data, (err) =>
       err ? console.error(err) : console.log('Generated logo.svg')
     );
   });
+
+module.exports = {
+  validateNameResponse,
+  createMyLogo
+};
