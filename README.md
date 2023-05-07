@@ -2,12 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This project is designed for a user to quickly create a custom logo for their own project.  The user can choose their own letters, shape, and colors, then have a SVG file of their logo generated for them.  During this project I learned about linking multiple javascript files, using jest to test, and how to use the inquirer validate features.
 
 ## Table of Contents (Optional)
 
@@ -15,20 +10,30 @@ Provide a short description explaining the what, why, and how of your project. U
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Tests](#tests)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To use this project, you must install inquirer.  To test this project, you must install jest.
 
 ## Usage
 
-Provide instructions and examples for use.
+Here is a link to the walkthrough video: https://watch.screencastify.com/v/K1titH5cRZHPuCGyjagR 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+To use this project, open the terminal on the index.js file and type "node index.js" and hit enter to start.  From here, you will enter the characters you want to include in the logo (1-3 characters), the character color in either text or hexadecimal format, the shape you would like your logo to appear as, and the color you would like the shape to be.  After you have answered all of the questions prompted to you in the terminal, a SVG file of your custom logo will be generated in the "examples" folder.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Here is an example of the prompts in the terminal:
+
+![Inquirer Prompts](screenshots/inquirerPrompts.png)
+
+Here are samples of a circle, square, and triangle logo created using this project:
+    
+![Sample Square Logo](screenshots/SampleSquareLogo.png)
+
+![Sample Circle Logo](screenshots/SampleCircleLogo.png)
+
+![Sample Triangle Logo](screenshots/SampleTriangleLogo.png)
+
 
 ## Credits
 
@@ -44,7 +49,13 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 6. I watched the video "JavaScript Constructors" on Bro Code youtube channel to learn more and help with my Class Constructor for Shape.  Here is the link to the video: https://www.youtube.com/watch?v=DaUFyK8M4WY 
 
-7. 
+7. I created an if/else to validate my input for 3 letters using ternary code that I found similar examples of on javascripttutorial.net.  Here is a link to the page: https://www.javascripttutorial.net/javascript-ternary-operator/ 
+
+8. I found two separate questions relating to validating a color and validating text on Stack Overflow with answers that helped me come up with how I validated the color input in my Inquirer prompt for Text and Shape color.  Here are links to the pages:
+Validating Color: https://stackoverflow.com/questions/2819619/validating-html-color-codes-js 
+Validating Text: https://stackoverflow.com/questions/69699749/validate-text-with-javascript-regex 
+
+9. I found a method of validating an inquirer prompt and then testing the inquirer prompt with JEST on Stack Overflow on a page titled, "Unit Testing Inquirer with Jest" in an answer from user Scott Blanch.  I used this to change how I was validating the character count and how I tested if it worked.  Here is a link to that page: https://stackoverflow.com/questions/53463776/unit-testing-inquirer-with-jest 
 
 
 ## License
@@ -53,10 +64,10 @@ MIT License.
 
 Please refer to the LICENSE document in the repository for additional License Information.
 
-## Features
-
-If your project has a lot of features, list them here.
-
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+To test this project, you will open the terminal on the shapes.test.js file and type "npm test" and hit ender.  From here, jest will run through the tests and display the results in the terminal.
+
+Here is an example of the tests in the terminal:
+
+![Jest Tests](screenshots/jestTests.png)
