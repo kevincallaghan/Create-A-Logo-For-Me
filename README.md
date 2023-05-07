@@ -27,10 +27,10 @@ Here is an example of the prompts in the terminal:
 ![Inquirer Prompts](screenshots/inquirerPrompts.png)
 
 Here are samples of a circle, square, and triangle logo created using this project:
-    
-![Sample Square Logo](screenshots/SampleSquareLogo.png)
 
 ![Sample Circle Logo](screenshots/SampleCircleLogo.png)
+
+![Sample Square Logo](screenshots/SampleSquareLogo.png)
 
 ![Sample Triangle Logo](screenshots/SampleTriangleLogo.png)
 
