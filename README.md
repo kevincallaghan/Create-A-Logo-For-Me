@@ -66,7 +66,7 @@ Please refer to the LICENSE document in the repository for additional License In
 
 ## Tests
 
-To test this project, you will open the terminal on the shapes.test.js file and type "npm test" and hit ender.  From here, jest will run through the tests and display the results in the terminal.
+To test this project, you will open the terminal on the shapes.test.js file and type "npm test" and hit enter.  From here, jest will run through the tests and display the results in the terminal.
 
 Here is an example of the tests in the terminal:
 
