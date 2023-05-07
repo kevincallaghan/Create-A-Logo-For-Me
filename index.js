@@ -21,7 +21,9 @@ function createMyLogo(response) {
   </svg>`;
 }
 
-//! See Credits #2 for Stack Overflow article I found where I learned about prompt validation and Credits #8 for help with RegEx to validate
+//! See Credits #2 for Stack Overflow article where I learned about prompt validation
+//! See Credits #7 for help with ternary if/else used in the validate functions
+//! See Credits #8 for help with RegEx to validate text and number input
 inquirer
   .prompt([
     {
